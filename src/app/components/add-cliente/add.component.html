@@ -1,0 +1,37 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+
+
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            required
+            [(ngModel)]="cliente.nome"
+            name="nome"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="cpf_cnpj">cpf/cnpj</label>
+          <input
+            class="form-control"
+            id="cpf_cnpj"
+            required
+            [(ngModel)]="cliente.cpf_cnpj"
+            name="cpf_cnpj"
+          />
+        </div>
+  
+        <button (click)="saveCliente()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Cliente salvo com sucesso!</h4>
+        <button class="btn btn-success" (click)="newCliente()">Add</button>
+      </div>
+    </div>
+  </div>

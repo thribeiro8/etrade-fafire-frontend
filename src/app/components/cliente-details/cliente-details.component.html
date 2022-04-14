@@ -1,0 +1,49 @@
+<div>
+    <div *ngIf="currentCliente.codCli" class="edit-form">
+      <h4>Cliente</h4>
+      <form>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            codcli="title"
+            [(ngModel)]="currentCliente.nome"
+            name="nome"
+          />
+        </div>
+        <div class="form-group">
+          <label for="cpf_cnpj">Cpf/Cnpj</label>
+          <input
+            type="text"
+            class="form-control"
+            codcli="cpf_cnpj"
+            [(ngModel)]="currentCliente.cpf_cnpj"
+            name="cpf_cnpj"
+          />
+        </div>
+  
+        
+      </form>
+  
+ 
+  
+      <button class="badge badge-danger mr-2" (click)="deleteCliente()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateCliente()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentCliente.codCli">
+      <br />
+      <p>Cliente não acessível...</p>
+    </div>
+  </div>

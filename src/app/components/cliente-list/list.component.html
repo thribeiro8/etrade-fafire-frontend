@@ -1,0 +1,57 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by Nome"
+          [(ngModel)]="nome"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchNome()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Lista de Cliente</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let cliente of clientes; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveCliente(cliente, i)"
+        >
+          {{ cliente.nome }}
+        </li>
+      </ul>
+  
+      
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentCliente">
+        <h4>Cliente</h4>
+        <div>
+          <label><strong>Nome:</strong></label> {{ currentCliente.nome }}
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentCliente.cpf_cnpj }}
+        </div>
+          
+        <a class="badge badge-warning" routerLink="/clientes/{{ currentCliente.codCli }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentCliente">
+        <br />
+        <p>favor clicar no cliente...</p>
+      </div>
+    </div>
+  </div>
